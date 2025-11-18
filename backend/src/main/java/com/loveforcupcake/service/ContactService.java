@@ -4,14 +4,17 @@ import com.loveforcupcake.dto.ContactRequest;
 import com.loveforcupcake.dto.ContactResponse;
 import com.loveforcupcake.model.Contact;
 import com.loveforcupcake.repository.ContactRepository;
-import lombok.RequiredArgsConstructor;
+// lombok.RequiredArgsConstructor removed; explicit constructor provided
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@RequiredArgsConstructor
 public class ContactService {
     private final ContactRepository contactRepository;
+
+    public ContactService(ContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
+    }
 
     @Transactional
     public ContactResponse createContact(ContactRequest request) {

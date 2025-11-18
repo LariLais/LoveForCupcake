@@ -5,7 +5,7 @@ import com.loveforcupcake.dto.OrderResponse;
 import com.loveforcupcake.service.OrderService;
 import com.loveforcupcake.service.UserService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+// lombok.RequiredArgsConstructor removed; explicit constructor provided
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -15,10 +15,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
-@RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
     private final UserService userService;
+
+    public OrderController(OrderService orderService, UserService userService) {
+        this.orderService = orderService;
+        this.userService = userService;
+    }
 
     @PostMapping
     public ResponseEntity<OrderResponse> createOrder(

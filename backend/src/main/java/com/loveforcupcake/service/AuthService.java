@@ -5,17 +5,22 @@ import com.loveforcupcake.dto.LoginRequest;
 import com.loveforcupcake.dto.RegisterRequest;
 import com.loveforcupcake.model.User;
 import com.loveforcupcake.util.JwtUtil;
-import lombok.RequiredArgsConstructor;
+// lombok removed — explicit constructor provided
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@RequiredArgsConstructor
 public class AuthService {
     private final UserService userService;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
+
+    public AuthService(UserService userService, JwtUtil jwtUtil, PasswordEncoder passwordEncoder) {
+        this.userService = userService;
+        this.jwtUtil = jwtUtil;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Transactional
     public AuthResponse register(RegisterRequest request) {

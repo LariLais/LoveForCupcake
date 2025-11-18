@@ -11,7 +11,7 @@ import com.loveforcupcake.model.User;
 import com.loveforcupcake.repository.OrderRepository;
 import com.loveforcupcake.repository.ProductRepository;
 import com.loveforcupcake.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+// lombok.RequiredArgsConstructor removed; explicit constructor provided
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,11 +20,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class OrderService {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
+
+    public OrderService(OrderRepository orderRepository, UserRepository userRepository, ProductRepository productRepository) {
+        this.orderRepository = orderRepository;
+        this.userRepository = userRepository;
+        this.productRepository = productRepository;
+    }
 
     @Transactional
     public OrderResponse createOrder(Long userId, OrderRequest request) {

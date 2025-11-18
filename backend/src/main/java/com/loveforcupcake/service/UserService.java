@@ -2,7 +2,7 @@ package com.loveforcupcake.service;
 
 import com.loveforcupcake.model.User;
 import com.loveforcupcake.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+// lombok.RequiredArgsConstructor removed; explicit constructor provided
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,10 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Transactional
     public User createUser(String email, String password, String name) {

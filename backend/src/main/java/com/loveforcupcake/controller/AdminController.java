@@ -7,17 +7,21 @@ import com.loveforcupcake.model.Order;
 import com.loveforcupcake.service.OrderService;
 import com.loveforcupcake.service.ProductService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+// lombok.RequiredArgsConstructor removed; explicit constructor provided
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/admin")
-@RequiredArgsConstructor
 public class AdminController {
     private final ProductService productService;
     private final OrderService orderService;
+
+    public AdminController(ProductService productService, OrderService orderService) {
+        this.productService = productService;
+        this.orderService = orderService;
+    }
 
     // Product Management
     @PostMapping("/products")

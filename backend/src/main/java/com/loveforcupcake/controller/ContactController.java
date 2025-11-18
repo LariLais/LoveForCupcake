@@ -4,16 +4,19 @@ import com.loveforcupcake.dto.ContactRequest;
 import com.loveforcupcake.dto.ContactResponse;
 import com.loveforcupcake.service.ContactService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+// lombok.RequiredArgsConstructor removed; explicit constructor provided
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/contact")
-@RequiredArgsConstructor
 public class ContactController {
     private final ContactService contactService;
+
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
+    }
 
     @PostMapping
     public ResponseEntity<ContactResponse> createContact(@Valid @RequestBody ContactRequest request) {
