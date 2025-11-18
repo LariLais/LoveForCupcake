@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Love For Cupcake</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🧁 Love For Cupcake</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="cardapio.html" class="nav-link">Cardápio</a>
+                <a href="comprar.html" class="nav-link">Comprar</a>
+                <div class="nav-auth" id="navAuth">
+                    <a href="login.html" class="nav-link active">Login</a>
+                    <a href="cadastro.html" class="btn btn-primary">Cadastrar</a>
+                </div>
+                <div class="nav-user" id="navUser" style="display: none;">
+                    <a href="meus-pedidos.html" class="nav-link">Meus Pedidos</a>
+                    <button class="btn btn-secondary" id="btnLogout">Sair</button>
+                </div>
+                <a href="carrinho.html" class="nav-link cart-link">
+                    🛒 Carrinho <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <h2>Login</h2>
+                        <p class="auth-subtitle">Entre com sua conta para continuar</p>
+                        
+                        <div id="authMessage"></div>
+                        
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required 
+                                       placeholder="seu@email.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">Senha</label>
+                                <input type="password" id="password" name="password" required 
+                                       placeholder="Sua senha">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Entrar
+                            </button>
+                        </form>
+                        
+                        <p class="auth-footer">
+                            Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>
+

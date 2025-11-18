@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Love For Cupcake</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carrinho.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🧁 Love For Cupcake</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="cardapio.html" class="nav-link">Cardápio</a>
+                <a href="comprar.html" class="nav-link">Comprar</a>
+                <div class="nav-auth" id="navAuth">
+                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="cadastro.html" class="btn btn-primary">Cadastrar</a>
+                </div>
+                <div class="nav-user" id="navUser" style="display: none;">
+                    <a href="meus-pedidos.html" class="nav-link">Meus Pedidos</a>
+                    <button class="btn btn-secondary" id="btnLogout">Sair</button>
+                </div>
+                <a href="carrinho.html" class="nav-link cart-link active">
+                    🛒 Carrinho <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="carrinho-section">
+            <div class="container">
+                <h1 class="section-title">Carrinho de Compras</h1>
+                
+                <div id="cartContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/carrinho.js"></script>
+</body>
+</html>
+
