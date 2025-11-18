@@ -19,10 +19,17 @@ async function loadProducts() {
 
         productsGrid.innerHTML = products.map(product => {
             const rawUrl = product && product.imageUrl ? String(product.imageUrl) : '';
-            // If page is opened via file://, remove leading slash so relative path works
-            const imageSrc = rawUrl
-                ? (originIsFile && rawUrl.startsWith('/') ? rawUrl.substring(1) : rawUrl)
-                : 'https://via.placeholder.com/300x250?text=Cupcake';
+            // Resolve image source robustly:
+            // - If opened via file://, remove leading slash so relative path works
+            // - Otherwise, if image path starts with '/', prefix with current origin so it resolves to the server that served the page
+            let imageSrc;
+            if (!rawUrl) {
+                imageSrc = 'https://via.placeholder.com/300x250?text=Cupcake';
+            } else if (originIsFile) {
+                imageSrc = rawUrl.startsWith('/') ? rawUrl.substring(1) : rawUrl;
+            } else {
+                imageSrc = rawUrl.startsWith('/') ? `${window.location.origin}${rawUrl}` : rawUrl;
+            }
 
             const price = product && product.price ? parseFloat(product.price).toFixed(2) : '0.00';
 

@@ -25,7 +25,7 @@ public class DataLoader implements CommandLineRunner {
         seeds.add(new Product(
             null,
             "Cupcake Classic",
-            "Vanilla cupcake with buttercream frosting",
+            "Cupcake de baunilha com cobertura de buttercream",
             new BigDecimal("5.50"),
             50,
             "/img/cupcake-vanilla.svg",
@@ -36,7 +36,7 @@ public class DataLoader implements CommandLineRunner {
         seeds.add(new Product(
             null,
             "Cupcake Chocolate",
-            "Chocolate cupcake with ganache",
+            "Cupcake de chocolate com ganache",
             new BigDecimal("6.00"),
             30,
             "/img/cupcake-choco.svg",
@@ -47,7 +47,7 @@ public class DataLoader implements CommandLineRunner {
         seeds.add(new Product(
             null,
             "Red Velvet Cupcake",
-            "Red velvet cupcake with cream cheese frosting",
+            "Cupcake red velvet com cobertura de cream cheese",
             new BigDecimal("6.50"),
             25,
             "/img/cupcake-redvelvet.svg",
